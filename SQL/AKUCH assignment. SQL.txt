@@ -1,0 +1,30 @@
+SELECT *
+FROM Students;
+
+SELECT DISTINCT GradeLevel
+FROM Students;
+
+SELECT Name AS StudentName, GradeLevel AS Grade 
+FROM Students;
+
+SELECT Name, Age 
+FROM Students
+WHERE Age > 15;
+
+SELECT * 
+FROM Students 
+ORDER BY Age ASC;
+
+SELECT * 
+FROM Students 
+WHERE Gender = 'Female' 
+ORDER BY Name DESC;
+
+SELECT COUNT(*) AS TotalStudents 
+FROM Students;
+
+SELECT AVG(Age) AS AverageAge 
+FROM Students;
+
+
+

@@ -1,0 +1,51 @@
+-- Question 1:
+-- (i) Create the table
+CREATE TABLE products (
+    id INT,
+    product_name VARCHAR(50),
+    category VARCHAR(50),
+    sales INT,
+    profit INT,
+    country VARCHAR(50)
+);
+
+-- (ii) Insert the data
+INSERT INTO products VALUES
+(1, 'Smartphone', 'Electronics', 1000, 200, 'Kenya'),
+(2, 'Sofa', 'Furniture', 1500, 300, 'South Sudan'),
+(3, 'Headphones', 'Electronics', 800, 120, 'Congo'),
+(4, 'Table', 'Furniture', 950, 180, 'Kenya'),
+(5, 'Refrigerator', 'Appliances', 2000, 450, 'Congo'),
+(6, 'T-Shirt', 'Clothing', 600, 150, 'South Sudan'),
+(7, 'Laptop', 'Electronics', 2500, 600, 'Kenya'),
+(8, 'Blender', 'Appliances', 700, 100, 'South Sudan'),
+(9, 'Dress', 'Clothing', 900, 220, 'Congo'),
+(10, 'Bookshelf', 'Furniture', 1100, 270, 'Kenya');
+
+-- Question 2:
+--Find total profit by category where total profit > 500
+SELECT category, SUM(profit) AS total_profit
+FROM products
+GROUP BY category
+HAVING SUM(profit) > 500;
+
+-- Question 3:
+-- Find total sales per country with total sales > 2500
+SELECT country, SUM(sales) AS total_sales
+FROM products
+GROUP BY country
+HAVING SUM(sales) > 2500;
+
+-- Question 4:
+-- Find average profit per category where average profit > 200
+SELECT category, AVG(profit) AS average_profit
+FROM products
+GROUP BY category
+HAVING AVG(profit) > 200;
+
+-- Question 5:
+-- Count number of products per country with more than 2 products
+SELECT country, COUNT(*) AS product_count
+FROM products
+GROUP BY country
+HAVING COUNT(*) > 2;
